@@ -10,7 +10,7 @@ Common datafields (SNR, hops_away, etc.) are also getting merged into a single d
 
 1. Install required packages
 
-`#include -r requirements.txt`
+`# pip install -r requirements.txt`
 
 2. Adjust the MQTT and InfluxDB login data
 
