@@ -44,7 +44,7 @@ If you want to visualize *all* data dynamically you can use following snipped wh
 SELECT last("voltage") 
 FROM "telemetry" 
 WHERE $timeFilter AND voltage >1
-GROUP BY time($__interval), "sender" fill(null)
+GROUP BY time($__interval)
 ```
 
 ## Known bugs?
