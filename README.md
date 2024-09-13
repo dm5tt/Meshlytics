@@ -36,6 +36,17 @@ if __name__ == "__main__":
 # python3 meshlytics.py
 ```
 
-# Known bugs?
+## Grafana
+
+If you want to visualize *all* data dynamically you can use following snipped which can be modified and recycled for all logged data (hops_away, temperature etc.).
+
+```
+SELECT last("voltage") 
+FROM "telemetry" 
+WHERE $timeFilter AND voltage >1
+GROUP BY time($__interval), "sender" fill(null)
+```
+
+## Known bugs?
 
 Most of the telemetry payloads haven't been tested yet. I expect some trouble from this as the value representation within MQTT jumps between integer (5.1 -> 5 -> 4.9). But most stuff seems to work for now.
