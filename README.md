@@ -15,19 +15,18 @@ Common datafields (SNR, hops_away, etc.) are also getting merged into a single d
 2. Adjust the MQTT and InfluxDB login data
 
 ```
-if __name__ == "__main__":
     config = MeshlyticsConfig(
-        mqtt_broker="dummy_broker",
+        mqtt_broker="dummy_broker.com",
         mqtt_port=1883,
-        mqtt_user="dummyUser",
-        mqtt_password="dummyPassword",
-        mqtt_topic="dummy/topic/#",
-        influxdb_host="dummy_host",
+        mqtt_user="dummy_pw",
+        mqtt_password="dummy_pw",
+        mqtt_topic="msh/EU_868/2/json/LongFast/#",
+        influxdb_host="dummy_influx.com",
         influxdb_port=8086,
-        influxdb_user="dummyInfluxUser",
-        influxdb_password="dummyInfluxPassword",
-        influxdb_database="dummy_database"
-    ) 
+        influxdb_user="dummx_user",
+        influxdb_password="dummy_pw",
+        influxdb_database="meshtastic"
+    )
 ```
 
 3. Start it 
