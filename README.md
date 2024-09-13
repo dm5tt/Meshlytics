@@ -4,7 +4,7 @@
 
 This is a shabby Python script that gatters data from the Meshtastic MQTT and puts them into an InfluxDB for further analysis. 
 
-Common datafields (SNR, hops_away, etc.) are also getting merged into a single database.
+Common datafields (SNR, hops_away, etc.) are also getting merged into a unified database.
 
 ## How to get this thing running?
 
