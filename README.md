@@ -1,4 +1,4 @@
-![MeshtasticRouterNode](doc/grafana.png)
+![Meshlytics](doc/grafana.png)
 
 ## What is this thing?
 
@@ -6,7 +6,13 @@ This is a shabby Python script that gatters data from the Meshtastic MQTT and pu
 
 Common datafields (SNR, hops_away, etc.) are also getting merged into a unified database.
 
+
+## Architecture Sketch 
+
+![Meshlytics Architecture](doc/architecture.drawio.png)
+
 ## How to get this thing running?
+
 
 1. Install required packages
 
