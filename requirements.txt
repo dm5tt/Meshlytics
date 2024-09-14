@@ -1,2 +1,2 @@
-paho-mqtt
-influxdb
+paho-mqtt==2.1.0
+influxdb==5.3.2
