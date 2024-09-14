@@ -2,7 +2,7 @@ import json
 import time
 import paho.mqtt.client as mqtt
 from influxdb import InfluxDBClient
-from datetime import datetime
+from datetime import datetime, timedelta
 
 class MeshlyticsConfig:
     def __init__(self, mqtt_broker, mqtt_port, mqtt_user, mqtt_password, mqtt_topic,
@@ -44,8 +44,8 @@ class Meshlytics:
         self.config = config
         self.influxdb_handler = influxdb_handler
         self.packet_count = 0
-        self.current_minute = datetime.now().minute
-        self.unique_senders = set()  # Set to track unique senders per minute
+        self.unique_senders = set()  # Set to track unique senders
+        self.last_rollover = datetime.now()  # Track the last rollover time
 
         self.client = mqtt.Client()
         self.client.username_pw_set(config.mqtt_user, config.mqtt_password)
@@ -63,7 +63,7 @@ class Meshlytics:
     def on_message(self, client, userdata, msg):
         try:
             self.packet_count += 1
-            self.check_minute_rollover()
+            self.check_rollover()
 
             payload = json.loads(msg.payload)
             sender = self.to_hex_string(payload.get('from', 0))
@@ -83,13 +83,14 @@ class Meshlytics:
     def to_hex_string(self, value):
         return f"{value:08x}"
 
-    def check_minute_rollover(self):
-        current_minute = datetime.now().minute
-        if current_minute != self.current_minute:
+    def check_rollover(self):
+        current_time = datetime.now()
+        # Check if 15 minutes have passed
+        if current_time - self.last_rollover >= timedelta(minutes=15):
             self.log_packet_count()
             self.log_unique_senders()
-            self.unique_senders.clear()  # Reset the set for the new minute
-            self.current_minute = current_minute
+            self.unique_senders.clear()  # Reset the set for the new period
+            self.last_rollover = current_time  # Update the last rollover time
 
     def log_packet_count(self):
         self.influxdb_handler.write_data(
@@ -100,7 +101,7 @@ class Meshlytics:
         self.packet_count = 0
 
     def log_unique_senders(self):
-        # Log the number of unique senders in the past minute
+        # Log the number of unique senders in the past 15 minutes
         unique_sender_count = len(self.unique_senders)
         self.influxdb_handler.write_data(
             measurement="unique_sender_stats",
@@ -162,6 +163,7 @@ class Meshlytics:
                 }
 
         return common_fields, specific_fields, measurement
+
 
 if __name__ == "__main__":
     config = MeshlyticsConfig(
