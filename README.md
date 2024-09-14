@@ -59,4 +59,4 @@ GROUP BY time($__interval)
 
 ## Known bugs?
 
-Most of the telemetry payloads haven't been tested yet. I expect some trouble from this as the value representation within MQTT jumps between integer (5.1 -> 5 -> 4.9). But most stuff seems to work for now.
+Most of the telemetry payloads haven't been tested yet. I expect some trouble from this as the value representation within MQTT jumps between integer and float (5.1 -> 5 -> 4.9). But most stuff seems to work for now.
