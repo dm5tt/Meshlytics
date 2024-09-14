@@ -163,7 +163,6 @@ class Meshlytics:
 
         return common_fields, specific_fields, measurement
 
-
 if __name__ == "__main__":
     config = MeshlyticsConfig(
         mqtt_broker="dummy_broker.com",
