@@ -45,6 +45,7 @@ class Meshlytics:
         self.influxdb_handler = influxdb_handler
         self.packet_count = 0
         self.current_minute = datetime.now().minute
+        self.unique_senders = set()  # Set to track unique senders per minute
 
         self.client = mqtt.Client()
         self.client.username_pw_set(config.mqtt_user, config.mqtt_password)
@@ -66,6 +67,8 @@ class Meshlytics:
 
             payload = json.loads(msg.payload)
             sender = self.to_hex_string(payload.get('from', 0))
+            self.unique_senders.add(sender)  # Add sender to the set of unique senders
+
             common_fields, specific_fields, measurement = self.process_payload(payload)
 
             if specific_fields:
@@ -81,8 +84,12 @@ class Meshlytics:
         return f"{value:08x}"
 
     def check_minute_rollover(self):
-        if datetime.now().minute != self.current_minute:
+        current_minute = datetime.now().minute
+        if current_minute != self.current_minute:
             self.log_packet_count()
+            self.log_unique_senders()
+            self.unique_senders.clear()  # Reset the set for the new minute
+            self.current_minute = current_minute
 
     def log_packet_count(self):
         self.influxdb_handler.write_data(
@@ -91,7 +98,15 @@ class Meshlytics:
             fields={"packet_count": self.packet_count}
         )
         self.packet_count = 0
-        self.current_minute = datetime.now().minute
+
+    def log_unique_senders(self):
+        # Log the number of unique senders in the past minute
+        unique_sender_count = len(self.unique_senders)
+        self.influxdb_handler.write_data(
+            measurement="unique_sender_stats",
+            tags={"source": "mqtt_broker"},
+            fields={"unique_sender_count": unique_sender_count}
+        )
 
     def process_payload(self, payload):
         common_fields = {
