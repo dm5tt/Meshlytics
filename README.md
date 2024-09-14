@@ -40,11 +40,11 @@ Common datafields (SNR, hops_away, etc.) are also getting merged into a unified 
 # python3 meshlytics.py
 ```
 
-## Warning
+## Note
 
-A lot of data (telemetry) of Meshtastic node in "Router"-mode is only getting transmitted twice a day! If you want to monitor/optimize the battery level you maybe have to increase this in the defaults.h or set it manually using the Python interface. You maybe can even increase it using remote administration.
+A lot of data (telemetry) of Meshtastic node in "Router"-mode is only getting transmitted twice a day! If you want to monitor/optimize the battery level you maybe have to increase this in the defaults.h or set it manually using the Python interface. You maybe can even do this by using the  remote administration infrastructure.
 
-Only increase the telemetry broadcast rate during the tuning and opimization phase! Telemetry packets are big and eat a lot of air time!
+Warning: **Only increase the telemetry broadcast rate during the tuning and opimization phase! Telemetry packets are big and eat a lot of air time!**
 
 ## Grafana
 
@@ -59,4 +59,4 @@ GROUP BY time($__interval)
 
 ## Known bugs?
 
-Most of the telemetry payloads haven't been tested yet. I expect some trouble from this as the value representation within MQTT jumps between integer and float (5.1 -> 5 -> 4.9). But most stuff seems to work for now.
+Most of the telemetry payloads haven't been tested yet. I expect some trouble from this as the value representation within MQTT jumps between integer and float (5.1 -> 5 -> 4.9).
