@@ -59,6 +59,8 @@ GROUP BY time($__interval)
 ![Meshlytics](doc/grafana-settings.png)
 
 
+You can find the importable Grafana dashboard from the screenshot above [here](./doc/meshtastic-grafana-dashboard.json).
+
 ## Known bugs?
 
 Most of the telemetry payloads haven't been tested yet. I expect some trouble from this as the value representation within MQTT jumps between integer and float (5.1 -> 5 -> 4.9).
