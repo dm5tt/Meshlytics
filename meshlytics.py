@@ -49,6 +49,7 @@ class Meshlytics:
 
         self.client = mqtt.Client()
         self.client.username_pw_set(config.mqtt_user, config.mqtt_password)
+        self.client.reconnect_delay_set(min_delay=1, max_delay=120)
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
 
