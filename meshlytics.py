@@ -43,9 +43,21 @@ class Meshlytics:
     def __init__(self, config: MeshlyticsConfig, influxdb_handler: MeshlyticsInfluxDB):
         self.config = config
         self.influxdb_handler = influxdb_handler
-        self.packet_count = 0
-        self.unique_senders = set()  # Set to track unique senders
-        self.last_rollover = datetime.now()  # Track the last rollover time
+        self.unique_senders = set()
+        self.last_rollover = datetime.now()
+        self.packet_type_count = {
+            'total': 0,
+            'unique_senders': 0,
+            'nodeinfo': 0,
+            'telemetry': 0,
+            'text': 0,
+            'position': 0,
+            'waypoint': 0,
+            'neighborinfo': 0,
+            'traceroute': 0,
+            'detection': 0,
+            'paxcounter': 0
+        }
 
         self.client = mqtt.Client()
         self.client.username_pw_set(config.mqtt_user, config.mqtt_password)
@@ -63,12 +75,18 @@ class Meshlytics:
 
     def on_message(self, client, userdata, msg):
         try:
-            self.packet_count += 1
             self.check_rollover()
 
             payload = json.loads(msg.payload)
             sender = self.to_hex_string(payload.get('from', 0))
-            self.unique_senders.add(sender)  # Add sender to the set of unique senders
+            # Track unique senders
+            self.unique_senders.add(sender)
+            self.packet_type_count['unique_senders'] = len(self.unique_senders)
+
+            packet_type = payload.get('type', 'unknown')
+            self.packet_type_count['total'] += 1
+            if packet_type in self.packet_type_count:
+                self.packet_type_count[packet_type] += 1
 
             common_fields, specific_fields, measurement = self.process_payload(payload)
 
@@ -86,28 +104,17 @@ class Meshlytics:
 
     def check_rollover(self):
         current_time = datetime.now()
-        # Check if 15 minutes have passed
         if current_time - self.last_rollover >= timedelta(minutes=15):
-            self.log_packet_count()
-            self.log_unique_senders()
-            self.unique_senders.clear()  # Reset the set for the new period
-            self.last_rollover = current_time  # Update the last rollover time
+            self.log_packet_type_counts()
+            self.unique_senders.clear()
+            self.packet_type_count = {key: 0 for key in self.packet_type_count}
+            self.last_rollover = current_time
 
-    def log_packet_count(self):
+    def log_packet_type_counts(self):
         self.influxdb_handler.write_data(
-            measurement="packet_stats",
+            measurement="packet_type_stats",
             tags={"source": "mqtt_broker"},
-            fields={"packet_count": self.packet_count}
-        )
-        self.packet_count = 0
-
-    def log_unique_senders(self):
-        # Log the number of unique senders in the past 15 minutes
-        unique_sender_count = len(self.unique_senders)
-        self.influxdb_handler.write_data(
-            measurement="unique_sender_stats",
-            tags={"source": "mqtt_broker"},
-            fields={"unique_sender_count": unique_sender_count}
+            fields=self.packet_type_count
         )
 
     def process_payload(self, payload):
@@ -164,7 +171,6 @@ class Meshlytics:
                 }
 
         return common_fields, specific_fields, measurement
-
 
 if __name__ == "__main__":
     config = MeshlyticsConfig(
