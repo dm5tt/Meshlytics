@@ -23,9 +23,8 @@
   "panels": [
     {
       "datasource": {
-        "default": false,
         "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
+        "uid": "adxynk2dg385cb"
       },
       "fieldConfig": {
         "defaults": {
@@ -146,7 +145,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [],
           "hide": false,
@@ -203,85 +202,8 @@
     },
     {
       "datasource": {
-        "default": false,
         "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
-          },
-          "custom": {
-            "fillOpacity": 70,
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineWidth": 0,
-            "spanNulls": true
-          },
-          "fieldMinMax": true,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 25,
-        "w": 24,
-        "x": 0,
-        "y": 15
-      },
-      "id": 5,
-      "options": {
-        "alignValue": "left",
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "mergeValues": true,
-        "rowHeight": 0.9,
-        "showValue": "auto",
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "alias": "",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
-          },
-          "hide": false,
-          "query": "SELECT last(\"hops_away\") \nFROM \"common_data\" \nWHERE $timeFilter \nGROUP BY time($__interval), \"sender\" fill(null)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
-        }
-      ],
-      "title": "Hops Away",
-      "type": "state-timeline"
-    },
-    {
-      "datasource": {
-        "default": false,
-        "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
+        "uid": "adxynk2dg385cb"
       },
       "fieldConfig": {
         "defaults": {
@@ -340,10 +262,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 16,
+        "h": 19,
         "w": 12,
         "x": 0,
-        "y": 40
+        "y": 15
       },
       "id": 8,
       "options": {
@@ -370,7 +292,7 @@
           "alias": "neighborinfo",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -411,7 +333,7 @@
           "alias": "detection",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -453,7 +375,7 @@
           "alias": "nodeinfo",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -495,7 +417,7 @@
           "alias": "paxcounter",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -537,7 +459,7 @@
           "alias": "position",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -579,7 +501,7 @@
           "alias": "telemetry",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -621,7 +543,7 @@
           "alias": "text",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -663,7 +585,7 @@
           "alias": "traceroute",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -707,9 +629,8 @@
     },
     {
       "datasource": {
-        "default": false,
         "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
+        "uid": "adxynk2dg385cb"
       },
       "fieldConfig": {
         "defaults": {
@@ -768,10 +689,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 16,
+        "h": 19,
         "w": 12,
         "x": 12,
-        "y": 40
+        "y": 15
       },
       "id": 9,
       "options": {
@@ -796,7 +717,7 @@
           "alias": "Unique stations",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "groupBy": [
             {
@@ -840,9 +761,223 @@
     },
     {
       "datasource": {
-        "default": false,
         "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
+        "uid": "adxynk2dg385cb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": true
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 34
+      },
+      "id": 5,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "adxynk2dg385cb"
+          },
+          "hide": false,
+          "query": "SELECT last(\"hops_away\") \nFROM \"common_data\" \nWHERE $timeFilter \nGROUP BY time($__interval), \"sender\" fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Hops Away",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "adxynk2dg385cb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "stepAfter",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dBm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 34
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "adxynk2dg385cb"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "telemetry",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"rssi\") \nFROM \"common_data\" \nWHERE $timeFilter \nGROUP BY time($__interval), \"sender\" fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "voltage"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sender::tag",
+              "operator": "=",
+              "value": "55e52292"
+            }
+          ]
+        }
+      ],
+      "title": "RSSI Reports",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "adxynk2dg385cb"
       },
       "fieldConfig": {
         "defaults": {
@@ -907,7 +1042,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 56
+        "y": 47
       },
       "id": 1,
       "options": {
@@ -935,7 +1070,7 @@
           "alias": "",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "hide": false,
           "query": "SELECT last(\"voltage\") \nFROM \"telemetry\" \nWHERE $timeFilter AND voltage >1\nGROUP BY time($__interval), \"sender\" fill(null)",
@@ -949,9 +1084,8 @@
     },
     {
       "datasource": {
-        "default": false,
         "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
+        "uid": "adxynk2dg385cb"
       },
       "fieldConfig": {
         "defaults": {
@@ -975,17 +1109,14 @@
               "viz": false
             },
             "insertNulls": false,
-            "lineInterpolation": "stepAfter",
-            "lineStyle": {
-              "fill": "solid"
-            },
+            "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 7,
             "scaleDistribution": {
               "type": "linear"
             },
             "showPoints": "always",
-            "spanNulls": false,
+            "spanNulls": 86400000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -994,7 +1125,6 @@
               "mode": "off"
             }
           },
-          "fieldMinMax": true,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -1002,20 +1132,49 @@
               {
                 "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           },
-          "unit": "dBm"
+          "unit": "humidity"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "telemetry.last { sender: bdc17f48 }"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 56
+        "y": 47
       },
-      "id": 2,
+      "id": 14,
       "options": {
         "legend": {
           "calcs": [
@@ -1036,63 +1195,25 @@
       "pluginVersion": "11.3.0",
       "targets": [
         {
+          "alias": "",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
           "hide": false,
-          "measurement": "telemetry",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT last(\"rssi\") \nFROM \"common_data\" \nWHERE $timeFilter \nGROUP BY time($__interval), \"sender\" fill(null)",
+          "query": "SELECT LAST(\"relative_humidity\") \nFROM \"telemetry\"\nWHERE $timeFilter AND \"relative_humidity\" >0\nGROUP BY time($__interval), \"sender\" fill(null)  ",
           "rawQuery": true,
           "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "voltage"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "sender::tag",
-              "operator": "=",
-              "value": "55e52292"
-            }
-          ]
+          "resultFormat": "time_series"
         }
       ],
-      "title": "RSSI Reports",
+      "title": "Humidity Reports",
       "type": "timeseries"
     },
     {
       "datasource": {
-        "default": false,
         "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
+        "uid": "adxynk2dg385cb"
       },
       "fieldConfig": {
         "defaults": {
@@ -1179,7 +1300,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 68
+        "y": 59
       },
       "id": 13,
       "options": {
@@ -1205,7 +1326,7 @@
           "alias": "",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "hide": false,
           "query": "SELECT LAST(\"temperature\") \nFROM \"telemetry\"\nWHERE $timeFilter AND temperature  !=0\nGROUP BY time($__interval), \"sender\" fill(null)  ",
@@ -1219,243 +1340,8 @@
     },
     {
       "datasource": {
-        "default": false,
         "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 7,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "always",
-            "spanNulls": 86400000,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "humidity"
-        },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "telemetry.last { sender: bdc17f48 }"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 11,
-        "w": 12,
-        "x": 12,
-        "y": 68
-      },
-      "id": 14,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max"
-          ],
-          "displayMode": "table",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "maxHeight": 600,
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "alias": "",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
-          },
-          "hide": false,
-          "query": "SELECT LAST(\"relative_humidity\") \nFROM \"telemetry\"\nWHERE $timeFilter AND \"relative_humidity\" >0\nGROUP BY time($__interval), \"sender\" fill(null)  ",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
-        }
-      ],
-      "title": "Humidity Reports",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 7,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "always",
-            "spanNulls": 86400000,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 11,
-        "w": 12,
-        "x": 0,
-        "y": 79
-      },
-      "id": 7,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max"
-          ],
-          "displayMode": "table",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "maxHeight": 600,
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "alias": "",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
-          },
-          "hide": false,
-          "query": "SELECT LAST(\"channel_utilization\") \nFROM \"telemetry\"\nWHERE $timeFilter AND channel_utilization <=100\nGROUP BY time($__interval), \"sender\" fill(null)  ",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
-        }
-      ],
-      "title": "Channel Utilization",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "default": false,
-        "type": "influxdb",
-        "uid": "ddum9hw9td2psb"
+        "uid": "adxynk2dg385cb"
       },
       "fieldConfig": {
         "defaults": {
@@ -1517,7 +1403,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 79
+        "y": 59
       },
       "id": 4,
       "options": {
@@ -1543,7 +1429,7 @@
           "alias": "",
           "datasource": {
             "type": "influxdb",
-            "uid": "ddum9hw9td2psb"
+            "uid": "adxynk2dg385cb"
           },
           "hide": false,
           "query": "SELECT mean(\"air_util_tx\") \nFROM \"telemetry\" \nWHERE $timeFilter  and \"air_util_tx\" <=100\nGROUP BY time($__interval), \"sender\" fill(null)",
@@ -1553,6 +1439,111 @@
         }
       ],
       "title": "Air TX Time Reports",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "adxynk2dg385cb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 7,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": 86400000,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 12,
+        "x": 0,
+        "y": 70
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "adxynk2dg385cb"
+          },
+          "hide": false,
+          "query": "SELECT LAST(\"channel_utilization\") \nFROM \"telemetry\"\nWHERE $timeFilter AND channel_utilization <=100\nGROUP BY time($__interval), \"sender\" fill(null)  ",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Channel Utilization",
       "type": "timeseries"
     }
   ],
@@ -1571,6 +1562,6 @@
   "timezone": "browser",
   "title": "Meshtastic",
   "uid": "ddum9lerrqww0c",
-  "version": 115,
+  "version": 130,
   "weekStart": ""
 }
